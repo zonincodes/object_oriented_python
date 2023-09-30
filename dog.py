@@ -63,8 +63,25 @@ my_other_car = Car("Toyota", "Camry", 1964)
 my_old_car = Car("Subaru", "Outback", 2020)
 my_old_car.update_odometer(20000)
 my_old_car.increment_odometer("Hello")
+
+
+# inheritance
+class ElectricCar(Car):
+    def __init__(self, make, model, year):
+        super().__init__(make, model, year)
+        self.battery_size = 70
+
+    def describe_battery(self):
+        """Print a statement describing the battery size."""
+        print(f"This car has a {self.battery_size}-kWh battery")
+
+
+my_tesla = ElectricCar('tesla', 'model s', 2016)
+
 if __name__ == "__main__":
     print(my_dog.name.title())
     print(my_other_car.get_descriptive_name())
     # help(Car)
     my_old_car.read_odometer()
+    print(my_tesla.get_descriptive_name())
+    my_tesla.describe_battery()
